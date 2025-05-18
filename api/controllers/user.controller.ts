@@ -38,3 +38,47 @@ export const register = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const login = async (req: Request, res: Response) => {
+  const email: string = req.body.email;
+  const password: string = req.body.password;
+  const user = await User.findOne({
+    email: email,
+    deleted: false,
+  });
+  if (!user) {
+    res.json({
+      code: 400,
+      message: "Không tồn tại email!",
+    });
+    return;
+  }
+  if (user.password !== md5(password)) {
+    res.json({
+      code: 400,
+      message: "Sai mật khẩu!",
+    });
+    return;
+  }
+  const token = user.token;
+
+  res.json({
+    code: 200,
+    message: "Đăng nhập thành công!",
+    token: token,
+  });
+};
+
+export const detail = async (req: Request, res: Response) => {
+  const id: string = req.params.id;
+  const user = await User.findOne({
+    _id: id,
+    deleted: false,
+  }).select("-password -token");
+
+  res.json({
+    code: 200,
+    message: "Lấy thông tin chi tiết thành công!",
+    infor: user,
+  });
+};

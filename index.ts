@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import * as database from "./config/database";
 import mainV1Routes from "./api/routes/index.route";
 
@@ -14,6 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors());
+
+app.use(cookieParser());
 
 mainV1Routes(app);
 
