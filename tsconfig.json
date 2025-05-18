@@ -4,6 +4,7 @@
     "target": "ES6", // Cho phép biên dịch TS sang kiểu ES6
     "removeComments": true, // Xóa comment khi biên dịch
     "module": "CommonJS", // CommonJS là tiêu chuẩn được sử dụng trong NodeJS để làm việc với các module
-    "esModuleInterop": true // Dùng được từ khóa import thay cho require
+    "esModuleInterop": true, // Dùng được từ khóa import thay cho require
+    "outDir": "dist"
   }
 }
