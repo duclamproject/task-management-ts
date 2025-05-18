@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import * as database from "./config/database";
-import mainV1Routes from "./api/routes/index.route";
+import mainV1Routes from "./api/v1/routes/index.route";
 
 dotenv.config();
 database.connect();

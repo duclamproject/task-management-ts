@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import Task from "../modules/task.model";
-import paginationHelper from "../../helpers/pagination";
-import searchHelper from "../../helpers/search";
+import paginationHelper from "../../../helpers/pagination";
+import searchHelper from "../../../helpers/search";
 
 export const index = async (req: Request, res: Response) => {
   // Filter
